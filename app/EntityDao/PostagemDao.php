@@ -109,9 +109,10 @@
 			if (!$resultado) {
 				throw new Exception("Não foi encontrado nenhum registro no banco");	
 			} else {
-				echo "DEU RUIM AQUI AO SELECIONAR OS COMENTÁRIOS..";
-				echo "<br><br>";
-				// $resultado->comentarios = Comentario::selecionarComentarios($resultado->id);
+				// echo "OK.. ENCONTRADO FALTA CRIAR A PROXIMA PARTE!!..";
+				// echo "<br><br>";
+				$resultado->comentarios = ComentarioDao::selecionarComentarios($resultado->id);
+				// $teste = ComentarioDao::selecionarComentarios($resultado->id);
 			}
 
 			return $resultado;

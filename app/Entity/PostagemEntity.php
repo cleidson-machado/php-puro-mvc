@@ -9,6 +9,7 @@
         private $id;
         private $titulo;
         private $conteudo;
+        private $comentarios;
 
         //UTIL PARA ESTUDO DE COMO FUNCIONA UMA ENTIDADE NO PHP
         //https://www.youtube.com/watch?v=b6c3B-Cgi38
@@ -19,6 +20,14 @@
         //     $this->titulo = $titulo;
         //     $this->conteudo = $conteudo;
         // }
+
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
 
         public function __construct()
         {
@@ -49,6 +58,27 @@
 
                 return $this;
         }
+
+        /**
+         * Get the value of comentarios
+         */ 
+        public function getComentarios()
+        {
+                return $this->comentarios;
+        }
+
+        /**
+         * Set the value of comentarios
+         *
+         * @return  self
+         */ 
+        public function setComentarios($comentarios)
+        {
+                $this->comentarios = $comentarios;
+
+                return $this;
+        }
+
     }
 
 ?>

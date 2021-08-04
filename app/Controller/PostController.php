@@ -1,5 +1,8 @@
 <?php
 
+	require_once 'app/EntityDao/PostagemDao.php';
+	require_once 'app/EntityDao/ComentarioDao.php';
+
 	class PostController
 	{
 
@@ -15,10 +18,9 @@
 		public function index($params)
 		{
             try {
-				$postagem = HomeController::daoGetInstace()->selecionaPorId($params);
+				$postagem = PostController::daoGetInstace()->selecionaPorId($params);
 
 				$loader = new \Twig\Loader\FilesystemLoader('app/View');
-                
                 $twig = new \Twig\Environment($loader);
 				$viewTemplate = $twig->load('single.html');
 
@@ -26,6 +28,7 @@
 				$dados['id'] = $postagem->id;
 				$dados['titulo'] = $postagem->titulo;
 				$dados['conteudo'] = $postagem->conteudo;
+				$dados['comentarios'] = $postagem->comentarios;
 
 				$viewDataCode = $viewTemplate->render($dados);
 				echo $viewDataCode;
