@@ -10,9 +10,9 @@
                 if (!isset(self::$instance))
                     self::$instance = new PostagemDao;
             return self::$instance;
-        }
-
-        public function index($params)
+		}
+		
+		public function index($params)
 		{
             try {
 				$postagem = HomeController::daoGetInstace()->selecionaPorId($params);
@@ -34,5 +34,12 @@
 				echo $e->getMessage();
 			}
         }
-    }
+
+		// _TEST_DBUG_ONLY
+        // public function index($params)
+		// {
+		// 		echo "AQUI NA POST!!!";
+		// }
+
+        }
 ?>

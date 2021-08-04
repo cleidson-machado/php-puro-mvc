@@ -96,10 +96,11 @@
 		//USED BY THE ORIGINAL PROJECT DEVELOPER
 		public static function selecionaPorId($idPost)
 		{
-			$con = Connection::getConn();
+			// $con = Connection::getConn();
+			$dataBase = ConnexDbConstruct::openLinkConnection();
 
 			$sql = "SELECT * FROM postagem WHERE id = :id";
-			$sql = $con->prepare($sql);
+			$sql = $dataBase->prepare($sql);
 			$sql->bindValue(':id', $idPost, PDO::PARAM_INT);
 			$sql->execute();
 
@@ -108,7 +109,9 @@
 			if (!$resultado) {
 				throw new Exception("Não foi encontrado nenhum registro no banco");	
 			} else {
-				$resultado->comentarios = Comentario::selecionarComentarios($resultado->id);
+				echo "DEU RUIM AQUI AO SELECIONAR OS COMENTÁRIOS..";
+				echo "<br><br>";
+				// $resultado->comentarios = Comentario::selecionarComentarios($resultado->id);
 			}
 
 			return $resultado;

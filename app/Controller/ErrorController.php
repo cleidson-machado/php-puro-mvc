@@ -5,7 +5,7 @@
 
         public function index()
         {
-            echo "Página dos redirecionamentos de erros..";
+            echo "A CONTROLLER DE ERRO FOI CARREGADA!!";
         }
 
     }

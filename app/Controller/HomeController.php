@@ -22,7 +22,8 @@
              $this->listar();// REDIRECIONAMENTO USANDO FUNÇÕES BÁSICAS POR ISSO USA O THIS...
          }
 
-         public function index()
+        //FUNÇÃO OK... APENAS BKP...
+        public function index()
 		{
 			try {
 
@@ -41,7 +42,7 @@
                 echo $viewDataCode;
             }
 
-		}
+        }
 
         // TESTE... OK EXEMPLO MAIS BEM ACABADO... NA DAO... FALTA CRIAR A VIEW!!
         public function listar()
@@ -67,6 +68,12 @@
             HomeController::daoGetInstace()->saveData($post);
 
         }
+
+        //  PARA TEST DEBUG ONLY
+        //  public function index()
+		// {
+        //     echo "passei aqui";
+        // }
 
     }
 
