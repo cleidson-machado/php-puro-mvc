@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# THIS ONE IS USED IN A PHP CLASS CALLED ErroController.php
+RewriteRule ^(.*)$ /mvclabrebuild/?pagina=erro&metodo=index2

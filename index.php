@@ -24,7 +24,7 @@ $template = file_get_contents('app/ViewTemplate/basicWebDesign.html');
 ob_start();
 
     $urlDefault = new UrlRouterUtil;
-    $urlDefault->redirectAndResolver($_GET);
+    $urlDefault->redirectAndResolver($_GET); //ERROR FOR WITE PAGE isn’t working.. HERE!
 
     $saida = ob_get_contents();
 
