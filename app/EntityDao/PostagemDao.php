@@ -74,10 +74,10 @@
 		//USED BY THE ORIGINAL PROJECT DEVELOPER
 		public static function selecionaTodos()
 		{
-			$con = Connection::getConn();
+			$dataBase = ConnexDbConstruct::openLinkConnection();
 
 			$sql = "SELECT * FROM postagem ORDER BY id DESC";
-			$sql = $con->prepare($sql);
+			$sql = $dataBase->prepare($sql);
 			$sql->execute();
 
 			$resultado = array();
@@ -127,9 +127,10 @@
 				return false;
 			}
 
-			$con = Connection::getConn();
+			// $con = Connection::getConn();
+			$dataBase = ConnexDbConstruct::openLinkConnection();			
 
-			$sql = $con->prepare('INSERT INTO postagem (titulo, conteudo) VALUES (:tit, :cont)');
+			$sql = $dataBase->prepare('INSERT INTO postagem (titulo, conteudo) VALUES (:tit, :cont)');
 			$sql->bindValue(':tit', $dadosPost['titulo']);
 			$sql->bindValue(':cont', $dadosPost['conteudo']);
 			$res = $sql->execute();
@@ -146,10 +147,11 @@
 		//USED BY THE ORIGINAL PROJECT DEVELOPER
 		public static function update($params)
 		{
-			$con = Connection::getConn();
+			// $con = Connection::getConn();
+			$dataBase = ConnexDbConstruct::openLinkConnection();
 
 			$sql = "UPDATE postagem SET titsulo = :tit, conteudo = :cont WHERE id = :id";
-			$sql = $con->prepare($sql);
+			$sql = $dataBase->prepare($sql);
 			$sql->bindValue(':tit', $params['titulo']);
 			$sql->bindValue(':cont', $params['conteudo']);
 			$sql->bindValue(':id', $params['id']);
@@ -167,10 +169,11 @@
 		//USED BY THE ORIGINAL PROJECT DEVELOPER
 		public static function delete($id)
 		{
-			$con = Connection::getConn();
+			// $con = Connection::getConn();
+			$dataBase = ConnexDbConstruct::openLinkConnection();
 
 			$sql = "DELETE FROM postagem WHERE id = :id";
-			$sql = $con->prepare($sql);
+			$sql = $dataBase->prepare($sql);
 			$sql->bindValue(':id', $id);
 			$resultado = $sql->execute();
 

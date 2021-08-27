@@ -10,15 +10,25 @@
         public static function openLinkConnection()
         {
             $servername = "127.0.0.1";
+            // $servername = "localhost"; //LOCAL PHP_MYADMIN_MYSQL
+            
+            $port = "3306";
+            // $port = "3307"; //LOCAL PHP_MYADMIN_MYSQL
+            
             $username = "root";
+            
             $password = "kabala";
+            // $password = ""; //LOCAL PHP_MYADMIN_MYSQL
+            
             $dbasename = "mvcphptest";
 
             if (self::$connDbaseDbase == null)
             {
                 try {
 
-                    self::$connDbaseDbase = new PDO("mysql:host=$servername;dbname=$dbasename", $username, $password);
+                    // ORIGINAL CONEX STRING.. NO PORT INFO
+                    // self::$connDbaseDbase = new PDO("mysql:host=$servername;dbname=$dbasename", $username, $password);
+                    self::$connDbaseDbase = new PDO("mysql:dbname=$dbasename;host=$servername;port=$port", $username, $password);
                     self::$connDbaseDbase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      
 
                 } catch (PDOException $e) {
